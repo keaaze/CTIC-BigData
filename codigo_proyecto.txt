@@ -1,0 +1,41 @@
+landing datalake
+-------------------------
+
+hdfs dfs -mkdir  /datalake1
+
+hdfs dfs -mkdir /datalake/landing1
+hdfs dfs -mkdir /datalake1/transformation1
+hdfs dfs -mkdir /datalake1/report1
+hdfs dfs -ls /
+
+hdfs dfs -put alarmas_telefonia_movil.csv /datalake1/landing1
+
+
+
+--------hive----------
+
+
+show databases;
+
+create databases alertas;
+
+create EXTERNAL table IF NOT EXISTS alertas.telefoniamovil(
+id INT COMMENT 'ID',
+GESTOR STRING COMMENT 'GESTOR' ,
+NODO STRING COMMENT 'NODO',
+EBC STRING COMMENT 'ESTACION BASE TELEFONIA',
+OCURRENCIA STRING  COMMENT 'OCURRENCIA DE ALERTA' ,
+CESE STRING COMMENT 'CESE DE ALERTA' ,
+SEVERIDAD STRING  COMMENT 'SEVERIDAD' ,
+ESLOGAN STRING COMMENT 'ESLOGAN DE ALERTA' ,
+CAPA  STRING  COMMENT 'CAPA DE RED' ,
+DEPARTAMENTO STRING COMMENT 'DEPARTAMENTO' ,
+LATITUD STRING  COMMENT 'LATITUD' ,
+LONGITUD STRING COMMENT 'LONGITUD' 
+)
+COMMENT 'tabla demo del sexto grupo CTIC'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE
+LOCATION '/datalake1/landing1/';
