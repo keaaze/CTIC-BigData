@@ -1,0 +1,26 @@
+HBASE
+git clone https://github.com/GoogleCloudPlatform/cloud-bigtable-examples.git cd 
+
+cloud-bigtable-examples/quickstart
+
+------- hbase -------
+
+git clone https://github.com/GoogleCloudPlatform/cloud-bigtable-examples.git
+cd cloud-bigtable-examples/quickstart
+
+./quickstart.sh
+
+create 'alertaM', 'Lugar', 'Ocurrencia'
+
+put 'alertaM', 'rw1', 'Lugar:Departamento', 'Lima'
+put 'alertaM', 'rw1', 'Lugar:Latitud', '-12.19469'
+put 'alertaM', 'rw1', 'Lugar:Longitud', '-76.95103'
+put 'alertaM', 'rw1', 'Ocurrencia:Detalle', 'BFD LINK FAILURE'
+put 'alertaM', 'rw1', 'Ocurrencia:Fecha', '2018-05-01-10.50.18'
+put 'alertaM', 'rw2', 'Lugar:Departamento', 'Ayacucho'
+put 'alertaM', 'rw2', 'Lugar:Latitud', '-13.2265'
+put 'alertaM', 'rw2', 'Lugar:Longitud', '-74.045583'
+put 'alertaM', 'rw2', 'Ocurrencia:Detalle', 'CELL LOGICAL CHANNEL AVAILABILITY 
+
+SUPERVISION'
+put 'alertaM', 'rw2', 'Ocurrencia:Fecha', '2018-05-04-14.05.36'
